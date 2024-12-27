@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23B74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="BudgetModel" representedClassName="BudgetModel" syncable="YES" codeGenerationType="class">
+        <attribute name="budAmount" optional="YES" attributeType="String"/>
+        <attribute name="budDescr" optional="YES" attributeType="String"/>
+        <attribute name="budName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PlayerModel" representedClassName="PlayerModel" syncable="YES" codeGenerationType="class">
+        <attribute name="plChar" optional="YES" attributeType="String"/>
+        <attribute name="plName" optional="YES" attributeType="String"/>
+        <attribute name="plNick" optional="YES" attributeType="String"/>
+        <attribute name="plPos" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="StatModel" representedClassName="StatModel" syncable="YES" codeGenerationType="class">
+        <attribute name="stKDA" optional="YES" attributeType="String"/>
+        <attribute name="stLos" optional="YES" attributeType="String"/>
+        <attribute name="stName" optional="YES" attributeType="String"/>
+        <attribute name="stNick" optional="YES" attributeType="String"/>
+        <attribute name="stWin" optional="YES" attributeType="String"/>
+    </entity>
+</model>
