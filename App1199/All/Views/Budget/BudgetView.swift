@@ -162,17 +162,6 @@ struct BudgetView: View {
                         LazyVStack {
                             
                             ForEach(viewModel.budgets, id: \.self) { index in
-                                
-                                Button(action: {
-                                    
-                                    viewModel.selectedBudget = index
-                                    
-                                    withAnimation(.spring()) {
-                                        
-                                        viewModel.isDeleteBudget = true
-                                    }
-                                    
-                                }, label: {
                                     
                                     HStack {
                                         
@@ -192,8 +181,25 @@ struct BudgetView: View {
                                         Text("$\(index.budAmount ?? "")")
                                             .foregroundColor(.white.opacity(0.3))
                                             .font(.system(size: 16, weight: .medium))
+                                        
+                                        
+                                        Button(action: {
+                                            
+                                            viewModel.selectedBudget = index
+                                            
+                                            withAnimation(.spring()) {
+                                                
+                                                viewModel.isDeleteBudget = true
+                                            }
+                                            
+                                        }, label: {
+                                            
+                                            Image(systemName: "trash.fill")
+                                                .foregroundColor(.red)
+                                                .font(.system(size: 16, weight: .regular))
+                                        })
+                                        .padding(.leading, 5)
                                     }
-                                })
                                 
                                 Rectangle()
                                     .fill(.white.opacity(0.2))

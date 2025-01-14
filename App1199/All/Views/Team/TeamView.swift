@@ -101,17 +101,6 @@ struct TeamView: View {
                         LazyVStack {
                             
                             ForEach(viewModel.players, id: \.self) { index in
-                                
-                                Button(action: {
-                                    
-                                    viewModel.selectedPlayer = index
-                                    
-                                    withAnimation(.spring()) {
-                                        
-                                        viewModel.isDeleteTeam = true
-                                    }
-                                    
-                                }, label: {
                                     
                                     HStack {
                                         
@@ -144,8 +133,25 @@ struct TeamView: View {
                                         Text(index.plPos ?? "")
                                             .foregroundColor(.white.opacity(0.3))
                                             .font(.system(size: 16, weight: .medium))
+                                        
+                                        
+                                        Button(action: {
+                                            
+                                            viewModel.selectedPlayer = index
+                                            
+                                            withAnimation(.spring()) {
+                                                
+                                                viewModel.isDeleteTeam = true
+                                            }
+                                            
+                                        }, label: {
+                                            
+                                            Image(systemName: "trash.fill")
+                                                .foregroundColor(.red)
+                                                .font(.system(size: 16, weight: .regular))
+                                        })
+                                        .padding(.leading, 5)
                                     }
-                                })
                                 
                                 Rectangle()
                                     .fill(.white.opacity(0.2))

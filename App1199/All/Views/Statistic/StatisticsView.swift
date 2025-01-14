@@ -103,29 +103,43 @@ struct StatisticsView: View {
                         LazyVStack {
                             
                             ForEach(viewModel.statistics, id: \.self) { index in
-                                
-                                Button(action: {
-                                    
-                                    viewModel.selectedStat = index
-                                    
-                                    withAnimation(.spring()) {
-                                        
-                                        viewModel.isDeleteStat = true
-                                    }
-                                    
-                                }, label: {
                                     
                                     VStack(spacing: 15) {
                                         
-                                        HStack {
+                                        ZStack {
                                             
-                                            Text(index.stName ?? "")
-                                                .foregroundColor(.white)
-                                                .font(.system(size: 22, weight: .semibold))
+                                            HStack {
+                                                
+                                                Text(index.stName ?? "")
+                                                    .foregroundColor(.white)
+                                                    .font(.system(size: 22, weight: .semibold))
+                                                
+                                                Text("(\(index.stNick ?? ""))")
+                                                    .foregroundColor(Color("prim"))
+                                                    .font(.system(size: 20, weight: .medium))
+                                            }
                                          
-                                            Text("(\(index.stNick ?? ""))")
-                                                .foregroundColor(Color("prim"))
-                                                .font(.system(size: 20, weight: .medium))
+                                            HStack {
+                                                
+                                                Spacer()
+                                                
+                                                
+                                                Button(action: {
+                                                    
+                                                    viewModel.selectedStat = index
+                                                    
+                                                    withAnimation(.spring()) {
+                                                        
+                                                        viewModel.isDeleteStat = true
+                                                    }
+                                                    
+                                                }, label: {
+                                                    
+                                                    Image(systemName: "trash.fill")
+                                                        .foregroundColor(.red)
+                                                        .font(.system(size: 16, weight: .regular))
+                                                })
+                                            }
                                         }
                                         
                                         HStack {
@@ -169,7 +183,6 @@ struct StatisticsView: View {
                                     .frame(maxWidth: .infinity)
                                     .background(RoundedRectangle(cornerRadius: 10).fill(Color("bg2")))
                                     
-                                })
                             }
                             
                         }
